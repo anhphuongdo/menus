@@ -18,8 +18,15 @@ public class DisplayActivity extends AppCompatActivity {
         tv = findViewById(R.id.textView);
         Intent intent = getIntent();
         String favorites = intent.getStringExtra("Favorites");
+
         Intent intent1 = getIntent();
         String settings = intent1.getStringExtra("Settings");
+
+        Intent intent2 = getIntent();
+        String favorite_type1 = intent.getStringExtra("Favorites-type1");
+
+        Intent intent3 = getIntent();
+        String favorite_type2 = intent.getStringExtra("Favorites-type2");
 
         if(favorites == null){
             favorites = "";
@@ -27,7 +34,13 @@ public class DisplayActivity extends AppCompatActivity {
         if(settings == null){
             settings = "";
         }
-        tv.setText(settings + favorites);
+        if(favorite_type1 == null){
+            favorite_type1 = "";
+        }
+        if(favorite_type2 == null){
+            favorite_type2 = "";
+        }
+        tv.setText(settings + favorites + favorite_type1 + favorite_type2);
 
     }
 }
